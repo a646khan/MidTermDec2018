@@ -9,9 +9,9 @@ public class UnitTestingMath {
 
         try {//unit testing for Factorial
             Assert.assertEquals(Factorial.factorial(5), 120);
-            System.out.println("Unit testing passed");
+            System.out.println("Unit testing passed for factorial");
         }catch (AssertionError ar){
-            System.out.println("Unit testing failed");
+            System.out.println("Unit testing failed for factorial");
         }
 
 
