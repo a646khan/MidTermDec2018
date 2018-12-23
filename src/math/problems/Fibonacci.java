@@ -18,7 +18,7 @@ public class Fibonacci {
                 fab[m] = fab[m - 2] + fab[m - 1];
             }
         }
-        System.out.println(Arrays.toString(fab));
+        System.out.println(fab);
 
         List<String> a = new ArrayList<String>();
 
