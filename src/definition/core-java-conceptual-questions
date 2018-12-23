@@ -327,7 +327,7 @@ An iterator is an interface that is used in place of Enumerations in the Java Co
 
 Which one will take more memory, an int or Integer?
 Answer:
-
+Integer will take more memory.
 
 
 Why is String Immutable in Java?
@@ -401,38 +401,67 @@ Heap and Stack are part of JVM but they are used for different purposes.
 
 What is reflection in java and why is it useful?
 Answer:
+Java Reflection is a process of examining or modifying the run time behavior of a class at run time.
 
+The Reflection API is mainly used in:
+IDE (Integrated Development Environment) e.g. Eclipse, MyEclipse, NetBeans etc.
+Debugger
+Test Tools etc.
 
 what is multithreading in java?
 Answer:
+Multithreading in java is a process of executing multiple threads simultaneously.
+A thread is a lightweight sub-process, the smallest unit of processing. Multiprocessing and multithreading, both are
+used to achieve multitasking.
 
 
 What is the use of synchronization in Java?
 Answer:
-
+Synchronization in java is the capability to control the access of multiple threads to any shared resource.
+Java Synchronization is better option where we want to allow only one thread to access the shared resource.
 
 What is Framework?
 Answer:
 
+A framework, or software framework, is a platform for developing software applications. It provides a foundation on which
+software developers can build programs for a specific platform. For example, a framework may include predefined classes
+and functions that can be used to process input, manage hardware devices, and interact with system software.
+
 
 What are the testing Framework available in java?
-Answer:
+Answer: testNG and jUnit
 
 
 Difference between jUnit and testNG?
 Answer:
+TestNG is a testing framework inspired from JUnit and NUnit but introducing some new functionalities that make it more
+powerful and easier to use.
+TestNG is designed to cover all categories of tests: unit, functional, end-to-end, integration, etc...
 
 
 What are the dependencies for this project?
 Answer:
+gson-2.6.2.jar
+java-jason.jar
+javax.jason.jar
+mongo-java-driver-3.4.0.jar
+mysql-connector-java-8.0.13.jar
+testng-6.8.7.jar
 
 
 what is dependency injection in java?
 Answer:
+Dependency injection is a concept valid for any programming language. The general concept behind dependency injection
+is called Inversion of Control. According to this concept a class should not configure its dependencies statically but
+should be configured from the outside.
 
 
 What is static binding and dynamic binding?
+Connecting a method call to the method body is known as binding.
 
+There are two types of binding
+Static Binding (also known as Early Binding).
+Dynamic Binding (also known as Late Binding).
 
 
 
