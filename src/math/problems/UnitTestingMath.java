@@ -25,5 +25,14 @@ public class UnitTestingMath {
             System.out.println("Unit testing failed for fibonacci");
         }
 
+        try {//unit testing for FindLowestDifference
+            Assert.assertEquals(FindLowestDifference.lowestDifference(),13);
+            System.out.println("Unit testing passed for FindLowestDifference");
+        }catch (AssertionError as){
+            System.out.println("Unit testing failed for FindLowestDifference");
+        }
+
+
+
     }
 }
