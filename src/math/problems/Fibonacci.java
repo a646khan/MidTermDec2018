@@ -1,8 +1,7 @@
 package math.problems;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class Fibonacci {
     public static void main(String[] args) {
@@ -13,9 +12,7 @@ public class Fibonacci {
         System.out.println(arrayFibo());
     }
 
-
-
-    public static ArrayList<Integer> arrayFibo(){
+    public static ArrayList<Integer> arrayFibo() {
 
         int fab[] = new int[40];
         ArrayList<Integer> ar = new ArrayList<>();
@@ -31,7 +28,7 @@ public class Fibonacci {
             }
         }
 
-    return ar;
+        return ar;
     }
 
 }
