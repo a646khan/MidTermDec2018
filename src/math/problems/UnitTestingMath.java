@@ -32,7 +32,5 @@ public class UnitTestingMath {
             System.out.println("Unit testing failed for FindLowestDifference");
         }
 
-
-
     }
 }
