@@ -32,7 +32,12 @@ public class UnitTestingMath {
             System.out.println("Unit testing failed for FindLowestDifference");
         }
 
-
+        try{
+            Assert.assertEquals(FindMissingNumber.missingNumber(),9);
+            System.out.println("Unit testing passed for FindMissingNumber");
+        }catch (AssertionError as){
+            System.out.println("Unit testing failed for FindMissingNumber");
+        }
 
 
     }
