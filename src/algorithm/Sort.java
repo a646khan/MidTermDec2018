@@ -79,7 +79,6 @@ public class Sort {
         //int [] list = array;
         //implement here
 
-
         final long startTime = System.currentTimeMillis();
         this.arr = array;
         this.length = array.length;
@@ -126,18 +125,6 @@ public class Sort {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     private int arr[];
     private  int length;
@@ -197,22 +184,65 @@ public class Sort {
     }
 
 
-
-
-
-
-
-
-
-
-    public int [] heapSort(int [] array){
-        int [] list = array;
+    public void heapSort(int [] array){
+        //int [] list = array;
         //implement here
-        
-        
 
-        return list;
+        final long startTime = System.currentTimeMillis();
+
+        int n = array.length;
+
+        for (int i = n / 2 - 1; i >= 0; i--)
+            heapy(array, n, i);
+
+        for (int i=n-1; i>=0; i--)
+        {
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+
+            heapy(array, i, 0);
+        }
+
+        final long endTime = System.currentTimeMillis();
+        final long executionTime = endTime - startTime;
+        this.executionTime = executionTime;
     }
+
+    void heapy(int arr[], int n, int i)
+    {
+        int largest = i;
+        int l = 2*i + 1;
+        int r = 2*i + 2;
+
+        if (l < n && arr[l] > arr[largest])
+            largest = l;
+
+        if (r < n && arr[r] > arr[largest])
+            largest = r;
+
+        if (largest != i)
+        {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+
+            heapy(arr, n, largest);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public int [] bucketSort(int [] array){
