@@ -74,28 +74,69 @@ public class Sort {
         return list;
     }
 
-
-    public int [] mergeSort(int [] array){
-        int [] list = array;
+    private int [] tempMergArr;
+    public void mergeSort(int [] array){
+        //int [] list = array;
         //implement here
 
 
         final long startTime = System.currentTimeMillis();
-        if (array == null || array.length ==0){
-            return list;
-        }
-
-
-
-
-
-
-
+        this.arr = array;
+        this.length = array.length;
+        this.tempMergArr = new int[length];
+        doMergeSort(0, length - 1);
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
         this.executionTime = executionTime;
-        return list;
+
     }
+
+    private void doMergeSort(int lowerIndex, int higherIndex) {
+
+        if (lowerIndex < higherIndex) {
+            int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+            doMergeSort(lowerIndex, middle);
+            doMergeSort(middle + 1, higherIndex);
+            mergeParts(lowerIndex, middle, higherIndex);
+        }
+    }
+
+    private void mergeParts(int lowerIndex, int middle, int higherIndex) {
+
+        for (int i = lowerIndex; i <= higherIndex; i++) {
+            tempMergArr[i] = arr[i];
+        }
+        int i = lowerIndex;
+        int j = middle + 1;
+        int k = lowerIndex;
+        while (i <= middle && j <= higherIndex) {
+            if (tempMergArr[i] <= tempMergArr[j]) {
+                arr[k] = tempMergArr[i];
+                i++;
+            } else {
+                arr[k] = tempMergArr[j];
+                j++;
+            }
+            k++;
+        }
+        while (i <= middle) {
+            arr[k] = tempMergArr[i];
+            k++;
+            i++;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     private int arr[];
@@ -125,9 +166,9 @@ public class Sort {
 
         int i = lowerIndex;
         int j = higherIndex;
-        // calculate pivot number, I am taking pivot as middle index number
+
         int pivot = arr[lowerIndex+(higherIndex-lowerIndex)/2];
-        // Divide into two arrays
+
         while (i <= j) {
 
             while (arr[i] < pivot) {
@@ -142,7 +183,7 @@ public class Sort {
                 j--;
             }
         }
-        // call quickSort() method recursively
+
         if (lowerIndex < j)
             quickSort(lowerIndex, j);
         if (i < higherIndex)
@@ -154,24 +195,6 @@ public class Sort {
         arr[i] = arr[j];
         arr[j] = temp;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
