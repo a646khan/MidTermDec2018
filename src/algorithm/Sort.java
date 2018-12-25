@@ -3,6 +3,7 @@ package algorithm;
 public class Sort {
 
     long executionTime = 0;
+
 	/*
 	 * Please implement all the sorting algorithm. Feel free to add helper methods.
 	 * Store all the sorted data into one of the databases.
@@ -72,30 +73,115 @@ public class Sort {
         this.executionTime = executionTime;
         return list;
     }
-    
+
 
     public int [] mergeSort(int [] array){
         int [] list = array;
         //implement here
+
+
         final long startTime = System.currentTimeMillis();
+        if (array == null || array.length ==0){
+            return list;
+        }
 
 
-        
-        
 
+
+
+
+
+        final long endTime = System.currentTimeMillis();
+        final long executionTime = endTime - startTime;
+        this.executionTime = executionTime;
         return list;
     }
-    
 
-    public int [] quickSort(int [] array){
-        int [] list = array;
+
+    private int arr[];
+    private  int length;
+
+    public void quickSort(int [] array){
+        //int [] list = array;
         //implement here
-        
-        
 
-        return list;
+
+        final long startTime = System.currentTimeMillis();
+        if (array == null || array.length ==0){
+            return ;
+        }
+
+        this.arr = array;
+        length = array.length;
+        quickSort(0,length-1);
+
+        final long endTime = System.currentTimeMillis();
+        final long executionTime = endTime - startTime;
+        this.executionTime = executionTime;
+
     }
-    
+
+    private void quickSort(int lowerIndex, int higherIndex) {
+
+        int i = lowerIndex;
+        int j = higherIndex;
+        // calculate pivot number, I am taking pivot as middle index number
+        int pivot = arr[lowerIndex+(higherIndex-lowerIndex)/2];
+        // Divide into two arrays
+        while (i <= j) {
+
+            while (arr[i] < pivot) {
+                i++;
+            }
+            while (arr[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                exchangeNumbers(i, j);
+                i++;
+                j--;
+            }
+        }
+        // call quickSort() method recursively
+        if (lowerIndex < j)
+            quickSort(lowerIndex, j);
+        if (i < higherIndex)
+            quickSort(i, higherIndex);
+    }
+
+    private void exchangeNumbers(int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int [] heapSort(int [] array){
         int [] list = array;
         //implement here

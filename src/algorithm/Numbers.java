@@ -69,21 +69,32 @@ public class Numbers {
 		System.out.println("********************===================*********************=======================***************");
 
 
-		//Merge Sort
-		algo.mergeSort(num);
-		long mergSortExecutionTime = algo.executionTime;
-		System.out.println("Total Execution Time of " + num.length + " numbers in Merge Sort take: " + mergSortExecutionTime + " milli sec");
+//		//Merge Sort
+//		algo.mergeSort(num);
+//		long mergSortExecutionTime = algo.executionTime;
+//		System.out.println("Total Execution Time of " + num.length + " numbers in Merge Sort take: " + mergSortExecutionTime + " milli sec");
+//
+//		connectToSqlDB.insertDataFromArrayToSqlTable(num, "merge_sort", "SortingNumbers");
+//		System.out.println("Data showing form database :");
+//		List<String> numbersm = connectToSqlDB.readDataBase("merge_sort", "SortingNumbers");
+//		printValue(numbersm);
+//		int nm = num.length;
+//		randomize (num, nm);
+//		System.out.println("********************===================*********************=======================***************");
 
-		connectToSqlDB.insertDataFromArrayToSqlTable(num, "merge_sort", "SortingNumbers");
+
+		//Quick Sort
+		algo.quickSort(num);
+		long quickSortExecutionTime = algo.executionTime;
+		System.out.println("Total Execution Time of " + num.length + " numbers in Quick Sort take: " + quickSortExecutionTime + " milli sec");
+
+		connectToSqlDB.insertDataFromArrayToSqlTable(num, "quick_sort", "SortingNumbers");
 		System.out.println("Data showing form database :");
-		List<String> numbersm = connectToSqlDB.readDataBase("merge_sort", "SortingNumbers");
-		printValue(numbersm);
-		int nm = num.length;
-		randomize (num, nm);
+		List<String> numbersq = connectToSqlDB.readDataBase("quick_sort", "SortingNumbers");
+		printValue(numbersq);
+		int nq = num.length;
+		randomize (num, nq);
 		System.out.println("********************===================*********************=======================***************");
-
-
-
 
 
 
