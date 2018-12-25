@@ -7,6 +7,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -160,7 +161,7 @@ public class ConnectToSqlDB {
             connectToSqlDatabase();
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
             ps.executeUpdate();
-            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+ columnName+"` int(20) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+ columnName+"` varchar(2500) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
             ps.executeUpdate();
             for(Object ob :list){
                 ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
@@ -225,6 +226,29 @@ public class ConnectToSqlDB {
         }
         return list;
     }
+
+//    public void insertDataFromMapToSqlTable(Map<Object> list, String tableName, String columnName)
+//    {
+//        try {
+//            connectToSqlDatabase();
+//            ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
+//            ps.executeUpdate();
+//            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+ columnName + "` varchar(2500) DEFAULT NULL'"+ columnName + "` varchar(2500) DEFAULT NULL );");
+//            ps.executeUpdate();
+//            for(Object ob :list){
+//                ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
+//                ps.setObject(1,ob);
+//                ps.executeUpdate();
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
         List<User> list = readUserProfileFromSqlTable();
