@@ -36,7 +36,16 @@ public class Sort {
         int [] list = array;
         //implement here
 
-
+        int temp;
+        for(int i=0;i<array.length;i++){
+            for(int j=i;j>0;j--){
+                if(array[j]<array[j-1]){
+                    temp=array[j];
+                    array[j]=array[j-1];
+                    array[j-1]=temp;
+                }
+            }
+        }
 
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
@@ -48,8 +57,19 @@ public class Sort {
         int [] list = array;
         //implement here
 
-        
-        
+        final long startTime = System.currentTimeMillis();
+        for(int i=0;i<array.length-1;i++){
+            for(int j=0;j<array.length-1;j++){
+                if(array[j]>array[j+1]){
+                    int temp=array[j];
+                    array[j]=array[j+1];
+                    array[j+1]=temp;
+                }
+            }
+        }
+        final long endTime = System.currentTimeMillis();
+        final long executionTime = endTime - startTime;
+        this.executionTime = executionTime;
         return list;
     }
     
@@ -57,6 +77,9 @@ public class Sort {
     public int [] mergeSort(int [] array){
         int [] list = array;
         //implement here
+        final long startTime = System.currentTimeMillis();
+
+
         
         
 
