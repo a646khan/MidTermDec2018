@@ -15,7 +15,21 @@ public class UseMap {
 		 * Use any databases[MongoDB, Oracle, MySql] to store data and retrieve data.
 		 */
 
-		// Use of HashMapList
+
+		// Use of HashMap
+		Map<String, String> state = new HashMap<String, String>();
+		state.put("NY", "New York");
+		state.put("NJ", "New Jersey");
+		state.put("PA", "Pennsylvania");
+
+		System.out.println(state.get("NY"));
+
+		for (Map.Entry entry:state.entrySet()){
+			System.out.println(entry.getKey()+" : "+entry.getValue());
+		}
+
+
+		// Use of LinkedMapList and arraylist
 		List<String> cityOfUSA = new ArrayList<>();
 		cityOfUSA.add("NY");
 		cityOfUSA.add("NJ");
@@ -83,7 +97,26 @@ public class UseMap {
 		}
 
 
+		// Each loop to retrieve data
+		System.out.println("Each loop to retrieve data");
+		for (Object str : list.keySet()) {
+			System.out.println("KeySet:" + str);
+			for (String str1 : list.get(str)) {
+				System.out.println("Value: " + str1);
+			}
+		}
 
+		// using while loop with Iterator to retrieve data
+		System.out.println("using while loop with Iterator to retrieve data");
+		Iterator itr = list.entrySet().iterator();
+
+		Iterator iterator = list.keySet().iterator();
+		while (iterator.hasNext()) {
+			Object values = iterator.next();
+			for (String str1 : list.get(values)) {
+				System.out.println("Value: " + str1);
+			}
+		}
 
 	}
 
