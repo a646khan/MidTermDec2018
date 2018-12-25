@@ -20,6 +20,7 @@ public class ConnectToSqlDB {
     public static Statement statement = null;
     public static PreparedStatement ps = null;
     public static ResultSet resultSet = null;
+    public static ResultSet resultSet2 = null;
 
     public static Properties loadProperties() throws IOException{
         Properties prop = new Properties();
@@ -58,6 +59,23 @@ public class ConnectToSqlDB {
 
     }
 
+    public void createTableFromStringToMySql(String tableName, String columnName1,String columnName2){
+        try {
+            connectToSqlDatabase();
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+columnName1+"` varchar(2500) DEFAULT NULL,`"+columnName2+"` varchar(2500) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps.executeUpdate();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public List<String> readDataBase(String tableName, String columnName)throws Exception{
         List<String> data = new ArrayList<String>();
@@ -74,6 +92,24 @@ public class ConnectToSqlDB {
         }
         return data;
     }
+
+    public List<String> readDataBase1(String tableName, String columnName1, String columnName2)throws Exception{
+        List<String> data = new ArrayList<String>();
+
+        try {
+            connectToSqlDatabase();
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery("select * from " + tableName);
+            data = getResultSetData1(resultSet, columnName1, columnName2);
+        } catch (ClassNotFoundException e) {
+            throw e;
+        }finally{
+            close();
+        }
+        return data;
+    }
+
+
 
     private void close() {
         try{
@@ -96,6 +132,17 @@ public class ConnectToSqlDB {
         while(resultSet.next()){
             String itemName = resultSet.getString(columnName);
             dataList.add(itemName);
+        }
+        return dataList;
+    }
+
+    private List<String> getResultSetData1(ResultSet resultSet2, String columnName1, String columnName2) throws SQLException {
+        List<String> dataList = new ArrayList<String>();
+        while(resultSet.next()){
+            String itemName1 = resultSet.getString(columnName1);
+            String itemName2 = resultSet.getString(columnName2);
+            dataList.add(itemName1);
+            dataList.add(itemName2);
         }
         return dataList;
     }
@@ -154,6 +201,30 @@ public class ConnectToSqlDB {
         }
         return data;
     }
+
+    public void InsertDataFromArrayListToMySql(List<String> list,String tableName, String columnName1,String columnName2 )
+    {
+        try {
+            connectToSqlDatabase();
+            String key = list.get(0);
+            String value = list.get(1);
+            System.out.println("key is:"+ key + " value is:" + value);
+
+            ps = connect.prepareStatement("INSERT INTO "+tableName+" ( " + columnName1 + "," + columnName2 + " ) VALUES(?,?)");
+            ps.setString(1,key);
+            ps.setString(2,value);
+            ps.executeUpdate();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public void insertDataFromArrayListToSqlTable(List<Object> list, String tableName, String columnName)
     {

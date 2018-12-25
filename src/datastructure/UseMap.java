@@ -66,6 +66,22 @@ public class UseMap {
 			System.out.println(entry.getKey()+" : "+entry.getValue());
 		}
 
+		connect.createTableFromStringToMySql("use_map", "mapKey", "mapValue");
+		for (Object str : list.keySet()) {
+			for (String str1 : list.get(str)) {
+				List<String> list1 = new ArrayList<String>();
+				list1.add(str.toString()); // adds key
+				list1.add(str1); // adds value
+				// Insert data in the database
+				connect.InsertDataFromArrayListToMySql(list1, "use_map", "mapKey", "mapValue");
+			}
+		}
+		System.out.println("Data showing from databases");
+		List<String> number = connect.readDataBase1("use_map", "mapKey", "mapValue");
+		for(String st:number){
+			System.out.println(st);
+		}
+
 
 
 
