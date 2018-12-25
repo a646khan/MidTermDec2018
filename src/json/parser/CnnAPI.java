@@ -1,14 +1,16 @@
 package json.parser;
 
+
+
 public class CnnAPI {
     /*
       You can get API_KEY from this below link. Once you have the API_KEY, you can fetch the top-headlines news.
       https://newsapi.org/s/cnn-api
 
       Fetch This following CNN API, It will return some news in Json data. Parse this data and construct
-      https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=YOUR_API_KEY
+      https://newsapi.org/v2/top-headlines?sources=cnn&apiKey=01502dde174d44e1aa6c1dfa616e967e
 
-      MY_API_KEY=0d9e35dfa3c140aab8bf9cdd70df957f
+      MY_API_KEY=01502dde174d44e1aa6c1dfa616e967e
 
       After getting Json Format of the news, You can go to json validator link: https://jsonlint.com/ to see
       how it can be parsed.
