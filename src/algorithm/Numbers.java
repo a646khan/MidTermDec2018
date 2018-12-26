@@ -110,7 +110,18 @@ public class Numbers {
 		randomize (num, nh);
 		System.out.println("********************===================*********************=======================***************");
 
+		//Bucket Sort
+		algo.bucketSort(num);
+		long bucketSortExecutionTime = algo.executionTime;
+		System.out.println("Total Execution Time of " + num.length + " numbers in Bucket Sort take: " + bucketSortExecutionTime + " milli sec");
 
+		connectToSqlDB.insertDataFromArrayToSqlTable(num, "bucket_sort", "SortingNumbers");
+		System.out.println("Data showing form database :");
+		List<String> numbersck = connectToSqlDB.readDataBase("bucket_sort", "SortingNumbers");
+		printValue(numbersck);
+		int nck = num.length;
+		randomize (num, nck);
+		System.out.println("********************===================*********************=======================***************");
 
 
 
