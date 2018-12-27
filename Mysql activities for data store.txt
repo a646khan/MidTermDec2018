@@ -1,0 +1,438 @@
+Marufs-MacBook-Pro:~ maruf$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 53
+Server version: 8.0.12 Homebrew
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use maruf
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_maruf  |
++------------------+
+| array_list       |
+| ArrayList        |
+| bubble_sort      |
+| bucket_sort      |
+| cityOfCANDA      |
+| cityOfUK         |
+| cityOfUSA        |
+| customers        |
+| heap_sort        |
+| insertion_sort   |
+| lowestNumber     |
+| merge_sort       |
+| PNT              |
+| PrimeNumber      |
+| quick_sort       |
+| selection_sort   |
+| SelfDrivingCar   |
+| shell_sort       |
+| students         |
+| tbl_lowestNumber |
+| tbl_pattern      |
+| use_map          |
++------------------+
+22 rows in set (0.00 sec)
+
+mysql> select * from array_list;
++----+-------------+
+| ID | listElement |
++----+-------------+
+|  1 | 150         |
+|  2 | 200         |
+|  3 | 300         |
+|  4 | 25          |
+|  5 | 90          |
+|  6 | 500         |
+|  7 | 600         |
+|  8 | 1000        |
++----+-------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from ArrayList;
++----+-----------+
+| ID | ArrayData |
++----+-----------+
+|  1 |      1200 |
+|  2 |      2005 |
+|  3 |      2200 |
+|  4 |      2348 |
+|  5 |      3070 |
+|  6 |      9012 |
+|  7 |      9081 |
++----+-----------+
+7 rows in set (0.00 sec)
+
+mysql> select * from bubble_sort;
++-----+----------------+
+| ID  | SortingNumbers |
++-----+----------------+
+|   1 |             12 |
+|   2 |             22 |
+|   3 |             29 |
+|   4 |             38 |
+|   5 |             38 |
+|   6 |             41 |
+|   7 |             53 |
+|   8 |             85 |
+|   9 |             93 |
+|  10 |             94 |
+|  11 |             96 |
+|  12 |            103 |
+|  13 |            120 |
+|  14 |            140 |
+|  15 |            153 |
+|  16 |            168 |
+|  17 |            179 |
+|  18 |            219 |
+|  19 |            233 |
+|  20 |            247 |
+|  21 |            253 |
+|  22 |            258 |
+|  23 |            266 |
+|  24 |            267 |
+|  25 |            291 |
+|  26 |            309 |
+|  27 |            315 |
+|  28 |            342 |
+|  29 |            343 |
+|  30 |            346 |
+|  31 |            346 |
+|  32 |            352 |
+|  33 |            376 |
+|  34 |            377 |
+|  35 |            377 |
+|  36 |            397 |
+|  37 |            399 |
+|  38 |            403 |
+|  39 |            430 |
+|  40 |            453 |
+|  41 |            455 |
+|  42 |            459 |
+|  43 |            473 |
+|  44 |            474 |
+|  45 |            480 |
+|  46 |            484 |
+|  47 |            489 |
+|  48 |            499 |
+|  49 |            500 |
+|  50 |            501 |
+|  51 |            509 |
+|  52 |            514 |
+|  53 |            517 |
+|  54 |            527 |
+|  55 |            528 |
+|  56 |            557 |
+|  57 |            592 |
+|  58 |            597 |
+|  59 |            607 |
+|  60 |            612 |
+|  61 |            619 |
+|  62 |            621 |
+|  63 |            628 |
+|  64 |            632 |
+|  65 |            656 |
+|  66 |            658 |
+|  67 |            660 |
+|  68 |            668 |
+|  69 |            700 |
+|  70 |            723 |
+|  71 |            734 |
+|  72 |            739 |
+|  73 |            755 |
+|  74 |            763 |
+|  75 |            768 |
+|  76 |            773 |
+|  77 |            786 |
+|  78 |            790 |
+|  79 |            791 |
+|  80 |            802 |
+|  81 |            804 |
+|  82 |            812 |
+|  83 |            817 |
+|  84 |            821 |
+|  85 |            823 |
+|  86 |            826 |
+|  87 |            830 |
+|  88 |            840 |
+|  89 |            848 |
+|  90 |            882 |
+|  91 |            900 |
+|  92 |            914 |
+|  93 |            919 |
+|  94 |            925 |
+|  95 |            929 |
+|  96 |            954 |
+|  97 |            973 |
+|  98 |            976 |
+|  99 |            997 |
+| 100 |            998 |
++-----+----------------+
+100 rows in set (0.00 sec)
+
+mysql> select * from bucket_sort;
++-----+----------------+
+| ID  | SortingNumbers |
++-----+----------------+
+|   1 |             12 |
+|   2 |             22 |
+|   3 |             29 |
+|   4 |             38 |
+|   5 |             38 |
+|   6 |             41 |
+|   7 |             53 |
+|   8 |             85 |
+|   9 |             93 |
+|  10 |             94 |
+|  11 |             96 |
+|  12 |            103 |
+|  13 |            120 |
+|  14 |            140 |
+|  15 |            153 |
+|  16 |            168 |
+|  17 |            179 |
+|  18 |            219 |
+|  19 |            233 |
+|  20 |            247 |
+|  21 |            253 |
+|  22 |            258 |
+|  23 |            266 |
+|  24 |            267 |
+|  25 |            291 |
+|  26 |            309 |
+|  27 |            315 |
+|  28 |            342 |
+|  29 |            343 |
+|  30 |            346 |
+|  31 |            346 |
+|  32 |            352 |
+|  33 |            376 |
+|  34 |            377 |
+|  35 |            377 |
+|  36 |            397 |
+|  37 |            399 |
+|  38 |            403 |
+|  39 |            430 |
+|  40 |            453 |
+|  41 |            455 |
+|  42 |            459 |
+|  43 |            473 |
+|  44 |            474 |
+|  45 |            480 |
+|  46 |            484 |
+|  47 |            489 |
+|  48 |            499 |
+|  49 |            500 |
+|  50 |            501 |
+|  51 |            509 |
+|  52 |            514 |
+|  53 |            517 |
+|  54 |            527 |
+|  55 |            528 |
+|  56 |            557 |
+|  57 |            592 |
+|  58 |            597 |
+|  59 |            607 |
+|  60 |            612 |
+|  61 |            619 |
+|  62 |            621 |
+|  63 |            628 |
+|  64 |            632 |
+|  65 |            656 |
+|  66 |            658 |
+|  67 |            660 |
+|  68 |            668 |
+|  69 |            700 |
+|  70 |            723 |
+|  71 |            734 |
+|  72 |            739 |
+|  73 |            755 |
+|  74 |            763 |
+|  75 |            768 |
+|  76 |            773 |
+|  77 |            786 |
+|  78 |            790 |
+|  79 |            791 |
+|  80 |            802 |
+|  81 |            804 |
+|  82 |            812 |
+|  83 |            817 |
+|  84 |            821 |
+|  85 |            823 |
+|  86 |            826 |
+|  87 |            830 |
+|  88 |            840 |
+|  89 |            848 |
+|  90 |            882 |
+|  91 |            900 |
+|  92 |            914 |
+|  93 |            919 |
+|  94 |            925 |
+|  95 |            929 |
+|  96 |            954 |
+|  97 |            973 |
+|  98 |            976 |
+|  99 |            997 |
+| 100 |            998 |
++-----+----------------+
+100 rows in set (0.00 sec)
+
+mysql> select * from cityOfCANDA;
++----+----------+
+| ID | City     |
++----+----------+
+|  1 | Toronto  |
+|  2 | Montreal |
+|  3 | Ottowa   |
++----+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from cityOfUK;
++----+------------+
+| ID | City       |
++----+------------+
+|  1 | London     |
+|  2 | Manchester |
+|  3 | Scotland   |
++----+------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from cityOfUSA;
++----+------+
+| ID | City |
++----+------+
+|  1 | NY   |
+|  2 | NJ   |
+|  3 | CA   |
++----+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from  SelfDrivingCar;
++----+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ID | text                                                                                                                                                                                                                                                  |
++----+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  1 | Self-driving cars are no longer a futuristic idea. Companies like Mercedes, BMW, and Tesla have already released, or are soon to release, self-driving features that give the car some ability to drive itself.                                       |
+|  2 |                                                                                                                                                                                                                                                       |
+|  3 | Tech companies are also trying to pioneer the self-driving car. Recently, Google announced that it would be testing its prototype of a driverless car on roads this summer in California.                                                             |
+|  4 |                                                                                                                                                                                                                                                       |
+|  5 | In an in-depth report from BI Intelligence, we analyze the self-driving car market by analyzing the current state of the self-driving car and provide an in-depth analysis for how we see the self-driving car progressing over the next five years.  |
+|  6 | Our in-depth analysis describes the economic impact that self-driving cars can have and look at the current barriers preventing the self-driving car from coming to market.arn and knowledge of the right steps!                                      |
++----+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from lowestNumber;
++----+--------+
+| ID | number |
++----+--------+
+|  1 | 5      |
++----+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from tbl_pattern;
++----+----------------+
+| ID | column_pattern |
++----+----------------+
+|  1 |            100 |
+|  2 |             99 |
+|  3 |             98 |
+|  4 |             97 |
+|  5 |             96 |
+|  6 |             95 |
+|  7 |             94 |
+|  8 |             93 |
+|  9 |             92 |
+| 10 |             91 |
+| 11 |             90 |
+| 12 |             88 |
+| 13 |             86 |
+| 14 |             84 |
+| 15 |             82 |
+| 16 |             80 |
+| 17 |             78 |
+| 18 |             76 |
+| 19 |             74 |
+| 20 |             72 |
+| 21 |             70 |
+| 22 |             67 |
+| 23 |             64 |
+| 24 |             61 |
+| 25 |             58 |
+| 26 |             55 |
+| 27 |             52 |
+| 28 |             49 |
+| 29 |             46 |
+| 30 |             43 |
+| 31 |             40 |
+| 32 |             36 |
+| 33 |             32 |
+| 34 |             28 |
+| 35 |             24 |
+| 36 |             20 |
+| 37 |             16 |
+| 38 |             12 |
+| 39 |              8 |
+| 40 |              4 |
++----+----------------+
+40 rows in set (0.00 sec)
+
+mysql> drop table tbl_lowestNumber;
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_maruf |
++-----------------+
+| array_list      |
+| ArrayList       |
+| bubble_sort     |
+| bucket_sort     |
+| cityOfCANDA     |
+| cityOfUK        |
+| cityOfUSA       |
+| customers       |
+| heap_sort       |
+| insertion_sort  |
+| lowestNumber    |
+| merge_sort      |
+| PNT             |
+| PrimeNumber     |
+| quick_sort      |
+| selection_sort  |
+| SelfDrivingCar  |
+| shell_sort      |
+| students        |
+| tbl_pattern     |
+| use_map         |
++-----------------+
+21 rows in set (0.00 sec)
+
+mysql> select * from use_map;
++----+--------+------------+
+| ID | mapKey | mapValue   |
++----+--------+------------+
+|  1 | USA    | NY         |
+|  2 | USA    | NJ         |
+|  3 | USA    | CA         |
+|  4 | Canada | Toronto    |
+|  5 | Canada | Montreal   |
+|  6 | Canada | Ottowa     |
+|  7 | UK     | London     |
+|  8 | UK     | Manchester |
+|  9 | UK     | Scotland   |
++----+--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> 
+

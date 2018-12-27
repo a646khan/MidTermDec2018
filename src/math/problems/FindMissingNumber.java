@@ -11,15 +11,13 @@ public class FindMissingNumber {
          * For example {10, 2, 1, 4, 5, 3, 7, 8, 6}. One number will be missing in array (9 in this case).
          * Write java code to find the missing number from the array. Write static helper method to find it.
          */
-
-        System.out.println("Missing index number in the given array is: " + FindMissingNumber.missingNumber());
+        int [] array = new int[]{10, 2, 1, 4, 5, 3, 7, 8, 6};
+        int n = 10;
+        System.out.println("Missing index number in the given array is: " + FindMissingNumber.missingNumber(array,n));
 
     }
 
-    public  static int missingNumber () {
-        int [] array = new int[]{10, 2, 1, 4, 5, 3, 7, 8, 6};
-        int n = 10;
-
+    public  static int missingNumber (int [] array, int n) {
 
         int total = 0;
         int sum =0;
@@ -33,7 +31,4 @@ public class FindMissingNumber {
         }
         return sum-total;
     }
-
-
-
 }

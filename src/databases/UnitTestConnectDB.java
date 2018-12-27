@@ -8,10 +8,10 @@ import java.sql.SQLException;
 public class UnitTestConnectDB {
     @Test
     public void connectionTest() {
-        ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
+
         try {
             ConnectToSqlDB.connectToSqlDatabase();
-
+            System.out.println("mysql database connected successfully.");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {

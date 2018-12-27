@@ -1,5 +1,7 @@
 package databases;
 
+import parser.Student;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,7 +61,7 @@ public class ConnectToSqlDB {
 
     }
 
-    public void createTableFromStringToMySql(String tableName, String columnName1,String columnName2){
+    public void createTableFromStringToMySql2(String tableName, String columnName1,String columnName2){
         try {
             connectToSqlDatabase();
             ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
@@ -202,7 +204,8 @@ public class ConnectToSqlDB {
         return data;
     }
 
-    public void InsertDataFromArrayListToMySql(List<String> list,String tableName, String columnName1,String columnName2 )
+
+    public void InsertDataFromArrayListToMySql2(List<String> list,String tableName, String columnName1,String columnName2 )
     {
         try {
             connectToSqlDatabase();
@@ -224,6 +227,22 @@ public class ConnectToSqlDB {
         }
     }
 
+    public void createTableFromStringToMySql2col(String tableName, String columnName1,String columnName2){
+        try {
+            connectToSqlDatabase();
+            ps = connect.prepareStatement("DROP TABLE IF EXISTS `"+tableName+"`;");
+            ps.executeUpdate();
+            ps = connect.prepareStatement("CREATE TABLE `"+tableName+"` (`ID` int(11) NOT NULL AUTO_INCREMENT,`"+columnName1+"` varchar(2500) DEFAULT NULL,`"+columnName2+"` varchar(2500) DEFAULT NULL,  PRIMARY KEY (`ID`) );");
+            ps.executeUpdate();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
     public void insertDataFromArrayListToSqlTable(List<Object> list, String tableName, String columnName)

@@ -13,29 +13,27 @@ public class Pattern {
 		 *
 		 *
 		 */
-		arrayList();
-
+		int n = 100;
+		System.out.println(arrayList(n));
 	}
 
-	public static ArrayList arrayList() {
+	public static ArrayList arrayList(int n) {
 		int count = 1, j = 0;
-		int n = 100;
-		ArrayList<Integer> ar = new ArrayList<>();
 
+		ArrayList<Integer> ar = new ArrayList<>();
 
 		int[] array1 = new int[40];
 
 		while (n > 0) {
 			for (int i = 0; i < 10; i++) {
-				System.out.print(" " + n);
 				ar.add(n);
 				array1[j] = n;
 				n -= count;
 				j++;
-
 			}
 			count++;
 		}
 		return ar;
 	}
+
 }

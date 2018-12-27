@@ -8,16 +8,15 @@ public class Fibonacci {
          /*
           Write 40 Fibonacci numbers with java.
          */
-
-        System.out.println(arrayFibo());
+        int fab[] = new int[40];
+        System.out.println(arrayFibo(fab));
     }
 
-    public static ArrayList<Integer> arrayFibo() {
+    public static ArrayList<Integer> arrayFibo(int fab[]){
 
-        int fab[] = new int[40];
         ArrayList<Integer> ar = new ArrayList<>();
 
-        for (int m = 0; m < 40; m++) {
+        for (int m = 0; m < fab.length; m++) {
             if (m < 2) {
                 fab[m] = m;
                 ar.add(fab[m]);

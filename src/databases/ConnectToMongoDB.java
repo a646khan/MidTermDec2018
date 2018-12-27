@@ -5,6 +5,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import json.parser.HelperClass;
 import org.bson.Document;
 import parser.Student;
 
@@ -54,6 +55,59 @@ public class ConnectToMongoDB {
         }
         return  "Student has been registered";
     }
+
+    public String newInsertIntoMongoDB(List<HelperClass> news, String profileName){
+        MongoDatabase mongoDatabase = connectToMongoDB();
+        MongoCollection myCollection = mongoDatabase.getCollection(profileName);
+        boolean collectionExists = mongoDatabase.listCollectionNames()
+                .into(new ArrayList<String>()).contains(profileName);
+        if(collectionExists) {
+            myCollection.drop();
+        }
+        for(int i=0; i<news.size(); i++){
+            MongoCollection<Document> collection = mongoDatabase.getCollection(profileName);
+            Document document = new Document().append("source", news.get(i).getSource()).append("author",
+                    news.get(i).getAuthor()).append("title",news.get(i).getTitle()).append("description", news.get(i).getDescription()).append("url", news.get(i).getUrl()).append("urlToImage", news.get(i).getUrlToImage()).append("publishedAt", news.get(i).getPublisherAt()).append("content", news.get(i).getContent());
+            collection.insertOne(document);
+        }
+        return  "CNN News";
+    }
+
+    public List<HelperClass> newReadListFromMongoDB(List<HelperClass> newsList, String profileName){
+        List<HelperClass> list = new ArrayList<HelperClass>();
+        HelperClass news = new HelperClass();
+        MongoDatabase mongoDatabase = connectToMongoDB();
+        MongoCollection<Document> collection = mongoDatabase.getCollection(profileName);
+        BasicDBObject basicDBObject = new BasicDBObject();
+        FindIterable<Document> iterable = collection.find(basicDBObject);
+        for(Document doc:iterable){
+            String source = (String)doc.get("source");
+            news.setSource(source);
+            String author = (String)doc.get("author");
+            news.setAuthor(author);
+            String title = (String)doc.get("title");
+            news.setTitle(title);
+            String description = (String) doc.get("description");
+            news.setDescription(description);
+
+            String url = (String) doc.get("url");
+            news.setUrl(url);
+
+            String urlToImage = (String) doc.get("urlToImage");
+            news.setUrlToImage(urlToImage);
+
+            String publisherAt = (String) doc.get("publisherAt");
+            news.setPublisherAt(publisherAt);
+
+            news = new HelperClass(news.getSource(),news.getAuthor(),news.getTitle(),news.getDescription(), news.getUrl(), news.getUrlToImage(), news.getPublisherAt(), news.getContent());
+            list.add(news);
+        }
+        return list;
+    }
+
+
+
+
 
     public static List<User> readUserProfileFromMongoDB(){
         List<User> list = new ArrayList<User>();

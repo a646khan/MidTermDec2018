@@ -123,19 +123,50 @@ public class Numbers {
 		randomize (num, nck);
 		System.out.println("********************===================*********************=======================***************");
 
+		//Shell Sort
+		algo.shellSort(num);
+		long shellSortExecutionTime = algo.executionTime;
+		System.out.println("Total Execution Time of " + num.length + " numbers in Shell Sort take: " + shellSortExecutionTime + " milli sec");
 
-
-
-
-
-
-
-
-
-
+		connectToSqlDB.insertDataFromArrayToSqlTable(num, "shell_sort", "SortingNumbers");
+		System.out.println("Data showing form database :");
+		List<String> numbersl = connectToSqlDB.readDataBase("shell_sort", "SortingNumbers");
+		printValue(numbersl);
+		int nl = num.length;
+		randomize (num, nl);
+		System.out.println("********************===================*********************=======================***************");
 
 
 		//Come to conclusion about which Sorting Algo is better in given data set.
+
+//		Total Execution Time of 1000000 numbers in Selection Sort take: 912260 milli sec
+//********************===================*********************=======================***************
+//		Total Execution Time of 1000000 numbers in Insertion Sort take: 231962 milli sec
+//********************===================*********************=======================***************
+//		Total Execution Time of 1000000 numbers in Bubble Sort take: 466591 milli sec
+//********************===================*********************=======================***************
+//		Total Execution Time of 1000000 numbers in Merge Sort take: 40 milli sec
+//********************===================*********************=======================***************
+//		Total Execution Time of 1000000 numbers in Quick Sort take: 86 milli sec
+//********************===================*********************=======================***************
+//		Total Execution Time of 1000000 numbers in Heap Sort take: 155 milli sec
+//********************===================*********************=======================***************
+//		Total Execution Time of 1000000 numbers in Bucket Sort take: 27 milli sec
+//********************===================*********************=======================***************
+//		Total Execution Time of 1000000 numbers in Shell Sort take: 33 milli sec
+//********************===================*********************=======================***************
+
+		//according to the above result and present condition Bucket sort was fastest and Selection sort is the slowest.
+		//shell and Merge sort are pretty close after bucket sort.
+
+
+
+
+
+
+
+
+
 
 	}
 
